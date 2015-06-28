@@ -47,7 +47,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="member in members | filter:keywords">
+                <tr ng-repeat="member in members | filter:namePipe()">
                   <td>{{member['編號']}}</td>
                   <td>{{member['姓名']}}</td>
                   <td>{{member['姓別']}}</td>
