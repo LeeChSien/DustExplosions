@@ -16,8 +16,11 @@
         //
       };
 
-      $scope.namePipe = function(name) {
-        return (name.length > 2) ? name[0] + '○' + name.substr(2, name.length-2) : name;
+      $scope.namePipe = function() {
+        if ($scope.keywords.length > 1)
+          return $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2);
+        else
+          return $scope.keywords;
       };
     }
   ]);
