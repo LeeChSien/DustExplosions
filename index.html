@@ -8,6 +8,11 @@
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="public/js/search_app.js"></script>
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
   </head>
   <body ng-app="searchApp">
     <div class="container" ng-controller="mainCtrl">
@@ -16,6 +21,16 @@
           <h3 class="panel-title">傷者查詢</h3>
         </div>
         <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="請輸入姓名" ng-model="keywords">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="search()">搜尋</button>
+                </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
           <hr>
           <table class="table table-hover">
             <thead>
@@ -36,20 +51,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="member in members">
-                <th>{{member['編號']}}</th>
-                <th>{{member['姓名']}}</th>
-                <th>{{member['姓別']}}</th>
-                <th>{{member['國籍']}}</th>
-                <th>{{member['年齡']}}</th>
-                <th>{{member['縣市別']}}</th>
-                <th>{{member['收治單位']}}</th>
-                <th>{{member['檢傷編號']}}</th>
-                <th>{{member['醫療檢傷']}}</th>
-                <th>{{member['救護檢傷']}}</th>
-                <th>{{member['即時動向']}}</th>
-                <th>{{member['轉診要求']}}</th>
-                <th>{{member['刪除註記']}}</th>
+              <tr ng-repeat="member in members | filter:namePipe()">
+                <td>{{member['編號']}}</td>
+                <td>{{member['姓名']}}</td>
+                <td>{{member['姓別']}}</td>
+                <td>{{member['國籍']}}</td>
+                <td>{{member['年齡']}}</td>
+                <td>{{member['縣市別']}}</td>
+                <td>{{member['收治單位']}}</td>
+                <td>{{member['檢傷編號']}}</td>
+                <td>{{member['醫療檢傷']}}</td>
+                <td>{{member['救護檢傷']}}</td>
+                <td>{{member['即時動向']}}</td>
+                <td>{{member['轉診要求']}}</td>
+                <td>{{member['刪除註記']}}</td>
               </tr>
             </tbody>
           </table>
