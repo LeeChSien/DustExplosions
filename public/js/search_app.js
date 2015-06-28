@@ -12,11 +12,14 @@
       });
 
       $scope.search = function() {
-
+        //
       };
 
       $scope.namePipe = function() {
-        return '李';
+        if ($scope.keywords.length == 3)
+          return $scope.keywords[0] + '○' + $scope.keywords[2];
+        else
+          return $scope.keywords;
       };
     }
   ]);
