@@ -16,8 +16,8 @@
       };
 
       $scope.namePipe = function() {
-        if ($scope.keywords.length == 3)
-          return $scope.keywords[0] + '○' + $scope.keywords[2];
+        if ($scope.keywords.length > 1)
+          return $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2);
         else
           return $scope.keywords;
       };
