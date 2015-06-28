@@ -3,12 +3,13 @@
 
   .controller('mainCtrl', ['$scope', '$http',
     function($scope, $http) {
-      $scope.model = {foo: 'bar'};
       $scope.keywords = ""
       $scope.members = [];
+      $scope.lastmodify = '';
 
-      $http.get('./data.json').success(function(result) {
-        $scope.members = result;
+      $http.get('https://gist.githubusercontent.com/tony1223/098e45623c73274f7ae3/raw').success(function(result) {
+        $scope.members = result.data;
+        $scope.lastmodify = result.lastmodify;
       });
 
       $scope.search = function() {
