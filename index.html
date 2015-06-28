@@ -10,7 +10,7 @@
     <script src="public/js/search_app.js"></script>
     <style>
       body {
-        padding-top: 50px;
+        padding-top: 30px;
       }
     </style>
   </head>
@@ -32,42 +32,44 @@
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
           <hr>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>編號</th>
-                <th>姓名</th>
-                <th>姓別</th>
-                <th>國籍</th>
-                <th>年齡</th>
-                <th>縣市別</th>
-                <th>收治單位</th>
-                <th>檢傷編號</th>
-                <th>醫療檢傷</th>
-                <th>救護檢傷</th>
-                <th>即時動向</th>
-                <th>轉診要求</th>
-                <th>刪除註記</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="member in members | filter:namePipe()">
-                <td>{{member['編號']}}</td>
-                <td>{{member['姓名']}}</td>
-                <td>{{member['姓別']}}</td>
-                <td>{{member['國籍']}}</td>
-                <td>{{member['年齡']}}</td>
-                <td>{{member['縣市別']}}</td>
-                <td>{{member['收治單位']}}</td>
-                <td>{{member['檢傷編號']}}</td>
-                <td>{{member['醫療檢傷']}}</td>
-                <td>{{member['救護檢傷']}}</td>
-                <td>{{member['即時動向']}}</td>
-                <td>{{member['轉診要求']}}</td>
-                <td>{{member['刪除註記']}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>編號</th>
+                  <th>姓名</th>
+                  <th>姓別</th>
+                  <th>國籍</th>
+                  <th>年齡</th>
+                  <th>縣市別</th>
+                  <th>收治單位</th>
+                  <th>檢傷編號</th>
+                  <th>醫療檢傷</th>
+                  <th>救護檢傷</th>
+                  <th>即時動向</th>
+                  <th>轉診要求</th>
+                  <th>刪除註記</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="member in members | filter:namePipe()">
+                  <td>{{member['編號']}}</td>
+                  <td>{{member['姓名']}}</td>
+                  <td>{{member['姓別']}}</td>
+                  <td>{{member['國籍']}}</td>
+                  <td>{{member['年齡']}}</td>
+                  <td>{{member['縣市別']}}</td>
+                  <td>{{member['收治單位']}}</td>
+                  <td>{{member['檢傷編號']}}</td>
+                  <td>{{member['醫療檢傷']}}</td>
+                  <td>{{member['救護檢傷']}}</td>
+                  <td>{{member['即時動向']}}</td>
+                  <td>{{member['轉診要求']}}</td>
+                  <td>{{member['刪除註記']}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
