@@ -7,7 +7,7 @@
       $scope.members = [];
       $scope.lastmodify = '';
 
-      $http.get('https://gist.githubusercontent.com/tony1223/098e45623c73274f7ae3/raw').success(function(result) {
+      $http.get('http://tonyq.org/kptaipei/api-20150628.php').success(function(result) {
         $scope.members = result.data;
         $scope.lastmodify = result.lastmodify;
       });
