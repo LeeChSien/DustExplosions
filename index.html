@@ -32,7 +32,8 @@
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
           <hr>
-          <div class="table-responsive">
+          <div class="text-center" ng-if="(members | filter:keywords).length == 0">無結果</div>
+          <div class="table-responsive" ng-if="(members | filter:keywords).length > 0">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -52,9 +53,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="member in members | filter:namePipe()">
+                <tr ng-repeat="member in members | filter:keywords">
                   <td>{{member['編號']}}</td>
-                  <td>{{member['姓名']}}</td>
+                  <td>{{namePipe(member['姓名'])}}</td>
                   <td>{{member['姓別']}}</td>
                   <td>{{member['國籍']}}</td>
                   <td>{{member['年齡']}}</td>
