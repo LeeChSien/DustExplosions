@@ -34,7 +34,7 @@
                 <tr>
                   <th>編號</th>
                   <th>姓名</th>
-                  <th>姓別</th>
+                  <th>性別</th>
                   <th>國籍</th>
                   <th>年齡</th>
                   <th>縣市別</th>
@@ -50,7 +50,7 @@
                 <tr ng-repeat="member in members | filter:namePipe()">
                   <td>{{member['編號']}}</td>
                   <td>{{member['姓名']}}</td>
-                  <td>{{member['姓別']}}</td>
+                  <td>{{member['性別']}}</td>
                   <td>{{member['國籍']}}</td>
                   <td>{{member['年齡']}}</td>
                   <td>{{member['縣市別']}}</td>
