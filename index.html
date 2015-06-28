@@ -11,6 +11,50 @@
   </head>
   <body ng-app="searchApp">
     <div class="container" ng-controller="mainCtrl">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">傷者查詢</h3>
+        </div>
+        <div class="panel-body">
+          <hr>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>編號</th>
+                <th>姓名</th>
+                <th>姓別</th>
+                <th>國籍</th>
+                <th>年齡</th>
+                <th>縣市別</th>
+                <th>收治單位</th>
+                <th>檢傷編號</th>
+                <th>醫療檢傷</th>
+                <th>救護檢傷</th>
+                <th>即時動向</th>
+                <th>轉診要求</th>
+                <th>刪除註記</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="member in members">
+                <th>{{member['編號']}}</th>
+                <th>{{member['姓名']}}</th>
+                <th>{{member['姓別']}}</th>
+                <th>{{member['國籍']}}</th>
+                <th>{{member['年齡']}}</th>
+                <th>{{member['縣市別']}}</th>
+                <th>{{member['收治單位']}}</th>
+                <th>{{member['檢傷編號']}}</th>
+                <th>{{member['醫療檢傷']}}</th>
+                <th>{{member['救護檢傷']}}</th>
+                <th>{{member['即時動向']}}</th>
+                <th>{{member['轉診要求']}}</th>
+                <th>{{member['刪除註記']}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </body>
 </html>
