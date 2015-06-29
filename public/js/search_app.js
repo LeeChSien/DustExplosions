@@ -30,6 +30,7 @@
         $event.preventDefault();
 
         var modalInstance = $modal.open({
+          size: 'lg',
           templateUrl: 'hospitalModalContent.html',
           controller: 'hospitalModalInstanceCtrl',
           resolve: {
