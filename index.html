@@ -77,12 +77,16 @@
         <h3 class="modal-title" ng-if="!hospital">尚無醫院資訊</h3>
       </div>
       <div class="modal-body">
-        <dl ng-if="hospital">
-          <dt>聯絡電話</dt>
-          <dd>{{hospital['聯絡電話']}}</dd>
-          <dt>地址</dt>
-          <dd>{{hospital['地址']}}</dd>
-        </dl>
+        <div ng-if="hospital">
+          <dl>
+            <dt>聯絡電話</dt>
+            <dd>{{hospital['聯絡電話']}}</dd>
+          </dl>
+          <dl>
+            <dt>地址</dt>
+            <dd>{{hospital['地址']}}</dd>
+          </dl>
+        </div>
       </div>
     </script>
 
