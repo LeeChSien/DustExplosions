@@ -39,6 +39,16 @@
           }
         });
       };
+    }
+  ])
+
+  .controller('hospitalModalInstanceCtrl', ['$scope', '$modalInstance', 'hospital',
+    function ($scope, $modalInstance, hospital) {
+      $scope.hospital = hospital;
+
+      $scope.close = function () {
+        $modalInstance.dismiss('cancel');
+      };
 
       $scope.center = {
         lat: 25.047923,
@@ -67,16 +77,6 @@
           lng: 121.5170907,
           focus: true
         }
-      };
-    }
-  ])
-
-  .controller('hospitalModalInstanceCtrl', ['$scope', '$modalInstance', 'hospital',
-    function ($scope, $modalInstance, hospital) {
-      $scope.hospital = hospital;
-
-      $scope.close = function () {
-        $modalInstance.dismiss('cancel');
       };
     }
   ]);
