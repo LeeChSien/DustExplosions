@@ -28,7 +28,6 @@
 
       $scope.openHospitalModal = function (hospital) {
         var modalInstance = $modal.open({
-          animation: $scope.animationsEnabled,
           templateUrl: 'hospitalModalContent.html',
           controller: 'hospitalModalInstanceCtrl',
           resolve: {
