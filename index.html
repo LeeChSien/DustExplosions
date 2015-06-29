@@ -46,7 +46,7 @@
             <li class="active"><a href="index.html">傷患查詢</a></li>
             <li><a href="chart.html">統計圖表</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -58,9 +58,12 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-8 col-xs-12">
-              <input type="text" class="form-control" placeholder="請輸入姓名" ng-model="keywords">
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
+              <input type="text" class="form-control" placeholder="請輸入傷患姓名" ng-model="keywords">
+            </div>
+            <div class="col-lg-4 col-xs-12 text-right">
+              資料授權：<a href="http://www.gov.taipei/ct.asp?xItem=108880666&ctNode=38161&mp=100001" target="_blank">台北市資訊局</a>
+            </div>
+          </div>
           <hr>
           <div class="text-center" ng-if="(members | filter:namePipe()).length == 0">無結果</div>
           <div class="table-responsive" ng-if="(members | filter:namePipe()).length > 0">
