@@ -77,7 +77,7 @@
 
       $scope.markers = {};
 
-      $http('http://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
+      $http.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
       .success(function(result) {
         $scope.markers = {
           hospital: {
