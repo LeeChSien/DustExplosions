@@ -45,7 +45,7 @@
       $scope.hospital = hospital;
 
       $scope.close = function () {
-        $modalInstance.dismiss();
+        $modalInstance.dismiss('cancel');
       };
     }
   ]);
