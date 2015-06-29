@@ -22,10 +22,6 @@
         }
       });
 
-      $scope.namePipe = function() {
-        return ($scope.keywords.length > 1) ? $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2) : $scope.keywords;
-      };
-
       $scope.openHospitalModal = function ($event, hospital) {
         $event.preventDefault();
 
@@ -42,6 +38,14 @@
             }
           }
         });
+      };
+
+      $scope.namePipe = function() {
+        return ($scope.keywords.length > 1) ? $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2) : $scope.keywords;
+      };
+
+      $scope.statusClass = function(status) {
+        return (status.indexOf('出院') != -1) ? ' label-success' : ' label-primary'
       };
     }
   ])
@@ -83,6 +87,7 @@
           hospital: {
             lat: result.results[0].geometry.location.lat,
             lng: result.results[0].geometry.location.lng,
+            message: $scope.hospital['醫院名稱'],
             focus: true
           }
         };

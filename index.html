@@ -64,7 +64,7 @@
               <tbody>
                 <tr ng-repeat="member in members | filter:namePipe()">
                   <td>{{member['編號']}}</td>
-                  <td>{{member['姓名']}}</td>
+                  <td><b>{{member['姓名']}}</b></td>
                   <td>{{member['性別']}}</td>
                   <td>{{member['國籍']}}</td>
                   <td>{{member['年齡']}}</td>
@@ -73,7 +73,9 @@
                   <td>{{member['檢傷編號']}}</td>
                   <td>{{member['醫療檢傷']}}</td>
                   <td>{{member['救護檢傷']}}</td>
-                  <td>{{member['即時動向']}}</td>
+                  <td>
+                    <span class="label" ng-class="statusClass(member['即時動向'])">{{member['即時動向']}}</span>
+                  </td>
                   <td>{{member['轉診要求']}}</td>
                 </tr>
               </tbody>
