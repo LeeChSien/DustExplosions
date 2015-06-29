@@ -1,5 +1,5 @@
 (function() {
-  angular.module('searchApp',['ui.bootstrap'])
+  angular.module('searchApp',['ui.bootstrap', 'leaflet-directive'])
 
   .controller('mainCtrl', ['$scope', '$http', '$modal',
     function($scope, $http, $modal) {
@@ -39,6 +39,24 @@
           }
         });
       };
+
+      angular.extend($scope, {
+        center: {
+          lat: 25.047923,
+          lng: 121.5170907,
+          zoom: 16
+        },
+        layers: {
+          baselayers: layerDict
+        },
+        markers: {
+          CurrentLocation: {
+            lat: 25.047923,
+            lng: 121.5170907,
+            focus: true
+          }
+        },
+      });
     }
   ])
 
