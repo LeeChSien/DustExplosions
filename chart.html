@@ -84,6 +84,16 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">年齡分佈</h3>
+            </div>
+            <div class="panel-body" ng-controller="discreteBarChartCtrl">
+              <nvd3 options="pieOptions" data="people"></nvd3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

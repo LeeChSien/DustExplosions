@@ -8,6 +8,7 @@
 
       $http.get('http://tonyq.org/kptaipei/api-20150628.php')
       .success(function(result) {
+        console.log(result.data.length);
         $scope.members = result.data;
         $scope.lastmodify = result.lastmodify;
       });
@@ -20,6 +21,9 @@
           y: function(d){return d.count;},
           showLabels: true,
           showLegend: false,
+          valueFormat: function(d){
+            return d3.format('d')(d);
+          },
           transitionDuration: 500,
           labelThreshold: 0.01
         }
@@ -35,7 +39,6 @@
         $scope.hospitalHash = {};
         $scope.hospitals = [];
 
-        // count hospitals
         for (var i = 0; i < members.length; i++) {
           _hospital = members[i]['收治單位'];
           if ($scope.hospitalHash[_hospital] == null)
@@ -64,7 +67,6 @@
         $scope.damageHash = {};
         $scope.damages = [];
 
-        // count hospitals
         for (var i = 0; i < members.length; i++) {
           _damage = members[i]['救護檢傷'];
           if ($scope.damageHash[_damage] == null)
@@ -93,7 +95,6 @@
         $scope.damageHash = {};
         $scope.damages = [];
 
-        // count hospitals
         for (var i = 0; i < members.length; i++) {
           _damage = members[i]['醫療檢傷'];
           if ($scope.damageHash[_damage] == null)
@@ -122,7 +123,6 @@
         $scope.countryHash = {};
         $scope.countries = [];
 
-        // count hospitals
         for (var i = 0; i < members.length; i++) {
           _country = members[i]['縣市別'];
           if ($scope.countryHash[_country] == null)
@@ -139,6 +139,26 @@
         }
 
         $scope.countries.sort(function(a, b){return b.count - a.count});
+      });
+    }
+  ])
+
+  .controller('discreteBarChartCtrl', ['$scope',
+    function($scope){
+      var age;
+
+      $scope.$watch('members', function(members) {
+        $scope.people = [];
+        for (var i = 1; i < 10; i++) {
+          $scope.people.push({name: i*10 + '~' + (i+1)*10, count: 0});
+        }
+
+        for (var i = 0; i < members.length; i++) {
+          if (members[i]['年齡']) {
+            age = members[i]['年齡'];
+            if ($scope.people[((age-(age%10))/10)-1]) { $scope.people[((age-(age%10))/10)-1].count += 1; }
+          }
+        }
       });
     }
   ]);
