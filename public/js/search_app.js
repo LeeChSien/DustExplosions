@@ -34,6 +34,9 @@
           templateUrl: 'hospitalModalContent.html',
           controller: 'hospitalModalInstanceCtrl',
           resolve: {
+            '$http': function() {
+              return $http;
+            },
             hospital: function () {
               return hospital;
             }
@@ -43,8 +46,8 @@
     }
   ])
 
-  .controller('hospitalModalInstanceCtrl', ['$scope', '$modalInstance', 'hospital',
-    function ($scope, $modalInstance, hospital) {
+  .controller('hospitalModalInstanceCtrl', ['$scope', '$modalInstance', '$http', 'hospital',
+    function ($scope, $modalInstance, $http, hospital) {
       $scope.hospital = hospital;
 
       $scope.close = function () {
@@ -72,13 +75,18 @@
         }
       };
 
-      $scope.markers = {
-        CurrentLocation: {
-          lat: 25.047923,
-          lng: 121.5170907,
-          focus: true
-        }
-      };
+      $scope.markers = {};
+
+      $http('http://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
+      .success(function(result) {
+        $scope.markers = {
+          hospital: {
+            lat: result.results[0].geometry.location.lat,
+            lng: result.results[0].geometry.location.lng,
+            focus: true
+          }
+        };
+      })
     }
   ]);
 
