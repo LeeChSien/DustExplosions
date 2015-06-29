@@ -86,6 +86,12 @@
             focus: true
           }
         };
+
+        $scope.center = {
+          lat: result.results[0].geometry.location.lat,
+          lng: result.results[0].geometry.location.lng,
+          zoom: 16
+        };
       })
     }
   ]);
