@@ -112,6 +112,35 @@
         $scope.damages.sort(function(a, b){return b.count - a.count});
       });
     }
+  ])
+
+  .controller('countryPieChartCtrl', ['$scope',
+    function($scope){
+      var _country;
+
+      $scope.$watch('members', function(members) {
+        $scope.countryHash = {};
+        $scope.countries = [];
+
+        // count hospitals
+        for (var i = 0; i < members.length; i++) {
+          _country = members[i]['縣市別'];
+          if ($scope.countryHash[_country] == null)
+            $scope.countryHash[_country] = 1;
+          else
+            $scope.countryHash[_country] += 1;
+        }
+
+        for (_country in $scope.countryHash) {
+          $scope.countries.push({
+            name: _country ? _country : '未分類',
+            count: $scope.countryHash[_country]
+          });
+        }
+
+        $scope.countries.sort(function(a, b){return b.count - a.count});
+      });
+    }
   ]);
 
 })();

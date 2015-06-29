@@ -74,6 +74,16 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">縣市分佈</h3>
+            </div>
+            <div class="panel-body" ng-controller="countryPieChartCtrl">
+              <nvd3 options="pieOptions" data="countries"></nvd3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
