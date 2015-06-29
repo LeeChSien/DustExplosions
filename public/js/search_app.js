@@ -18,7 +18,7 @@
       $http.get('https://raw.githubusercontent.com/harry2690/psof/gh-pages/hospitals.json')
       .success(function(result) {
         for (var i = 0; i < result.data.length; i++) {
-          $scope.hospitals[result.data['醫院名稱']] = result.data[i];
+          $scope.hospitals[result.data[i]['醫院名稱']] = result.data[i];
         }
       });
 
