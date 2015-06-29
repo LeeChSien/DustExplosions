@@ -47,7 +47,18 @@
           zoom: 16
         },
         layers: {
-          baselayers: layerDict
+          baselayers: {
+            googleTerrain: {
+              name: 'Google Terrain',
+              layerType: 'TERRAIN',
+              type: 'google'
+            },
+            googleHybrid: {
+              name: 'Google Hybrid',
+              layerType: 'HYBRID',
+              type: 'google'
+            }
+          }
         },
         markers: {
           CurrentLocation: {
