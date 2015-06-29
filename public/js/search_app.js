@@ -53,9 +53,9 @@
               layerType: 'TERRAIN',
               type: 'google'
             },
-            googleHybrid: {
-              name: 'Google Hybrid',
-              layerType: 'HYBRID',
+            googleRoadmap: {
+              name: 'Google Streets',
+              layerType: 'ROADMAP',
               type: 'google'
             }
           }
