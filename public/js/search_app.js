@@ -26,9 +26,9 @@
         return ($scope.keywords.length > 1) ? $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2) : $scope.keywords;
       };
 
-      $scope.openHospitalModal = function (hospital, $event) {
+      $scope.openHospitalModal = function ($event, hospital) {
         $event.preventDefault();
-        
+
         var modalInstance = $modal.open({
           templateUrl: 'hospitalModalContent.html',
           controller: 'hospitalModalInstanceCtrl',
