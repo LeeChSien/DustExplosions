@@ -8,7 +8,6 @@
 
       $http.get('http://tonyq.org/kptaipei/api-20150628.php')
       .success(function(result) {
-        console.log(result.data.length);
         $scope.members = result.data;
         $scope.lastmodify = result.lastmodify;
       });
