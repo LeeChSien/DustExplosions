@@ -40,34 +40,34 @@
         });
       };
 
-      angular.extend($scope, {
-        center: {
+      $scope.center = {
+        lat: 25.047923,
+        lng: 121.5170907,
+        zoom: 16
+      };
+
+      $scope.layers = {
+        baselayers: {
+          googleTerrain: {
+            name: 'Google Terrain',
+            layerType: 'TERRAIN',
+            type: 'google'
+          },
+          googleRoadmap: {
+            name: 'Google Streets',
+            layerType: 'ROADMAP',
+            type: 'google'
+          }
+        }
+      };
+
+      $scope.markers = {
+        CurrentLocation: {
           lat: 25.047923,
           lng: 121.5170907,
-          zoom: 16
-        },
-        layers: {
-          baselayers: {
-            googleTerrain: {
-              name: 'Google Terrain',
-              layerType: 'TERRAIN',
-              type: 'google'
-            },
-            googleRoadmap: {
-              name: 'Google Streets',
-              layerType: 'ROADMAP',
-              type: 'google'
-            }
-          }
-        },
-        markers: {
-          CurrentLocation: {
-            lat: 25.047923,
-            lng: 121.5170907,
-            focus: true
-          }
-        },
-      });
+          focus: true
+        }
+      };
     }
   ])
 
