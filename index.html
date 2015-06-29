@@ -19,9 +19,16 @@
       body {
         padding-top: 30px;
       }
-      .leaflet-container {
+      .map-view {
+        position: relative;
+        width: 100%;
         height: 300px;
       }
+
+      .leaflet-container {
+        height: 100%;
+      }
+
     </style>
   </head>
   <body ng-app="searchApp">
@@ -94,7 +101,9 @@
             <dt>地址</dt>
             <dd>{{hospital['地址']}}</dd>
           </dl>
-          <leaflet center="center" layers="layers" markers="markers"></leaflet>
+          <div class="map-view">
+            <leaflet center="center" layers="layers" markers="markers"></leaflet>
+          </div>
         </div>
       </div>
     </script>
