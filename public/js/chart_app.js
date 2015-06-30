@@ -6,7 +6,7 @@
       $scope.members = [];
       $scope.lastmodify = '';
 
-      $http.get('http://tonyq.org/kptaipei/api-20150628.php')
+      $http.get('//tonyq.org/kptaipei/api-20150628.php')
       .success(function(result) {
         $scope.members = result.data;
         $scope.lastmodify = result.lastmodify;
