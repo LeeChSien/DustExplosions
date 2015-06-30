@@ -9,13 +9,13 @@
 
       $scope.lastmodify = '';
 
-      $http.get('http://tonyq.org/kptaipei/api-20150628.php')
+      $http.get('//tonyq.org/kptaipei/api-20150628.php')
       .success(function(result) {
         $scope.members = result.data;
         $scope.lastmodify = result.lastmodify;
       });
 
-      $http.get('https://raw.githubusercontent.com/harry2690/psof/gh-pages/hospitals.json')
+      $http.get('//raw.githubusercontent.com/harry2690/psof/gh-pages/hospitals.json')
       .success(function(result) {
         for (var i = 0; i < result.data.length; i++) {
           $scope.hospitals[result.data[i]['醫院名稱']] = result.data[i];
@@ -81,23 +81,25 @@
 
       $scope.markers = {};
 
-      $http.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
-      .success(function(result) {
-        $scope.markers = {
-          hospital: {
+      if ($scope.hospital['地址']) {
+        $http.get('//maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
+        .success(function(result) {
+          $scope.markers = {
+            hospital: {
+              lat: result.results[0].geometry.location.lat,
+              lng: result.results[0].geometry.location.lng,
+              message: $scope.hospital['醫院名稱'],
+              focus: true
+            }
+          };
+
+          $scope.center = {
             lat: result.results[0].geometry.location.lat,
             lng: result.results[0].geometry.location.lng,
-            message: $scope.hospital['醫院名稱'],
-            focus: true
-          }
-        };
-
-        $scope.center = {
-          lat: result.results[0].geometry.location.lat,
-          lng: result.results[0].geometry.location.lng,
-          zoom: 16
-        };
-      })
+            zoom: 16
+          };
+        })
+      }
     }
   ]);
 
