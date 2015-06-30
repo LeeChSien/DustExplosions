@@ -81,7 +81,7 @@
 
       $scope.markers = {};
 
-      if ($scope.hospital['地址']) {
+      if ($scope.hospital && $scope.hospital['地址']) {
         $http.get('//maps.googleapis.com/maps/api/geocode/json?address=' + $scope.hospital['地址'])
         .success(function(result) {
           $scope.markers = {
